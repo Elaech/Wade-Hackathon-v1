@@ -1,0 +1,372 @@
+@prefix : <http://www.semanticweb.org/laura/ontologies/2021/10/untitled-ontology-104#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/laura/ontologies/2021/10/untitled-ontology-104> .
+
+<http://www.semanticweb.org/laura/ontologies/2021/10/untitled-ontology-104> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/laura/ontologies/2021/10/untitled-ontology-104#hasAlbum
+:hasAlbum rdf:type owl:ObjectProperty ;
+          owl:inverseOf :isAlbumFor ;
+          rdfs:domain [ rdf:type owl:Class ;
+                        owl:unionOf ( <http://purl.org/ontology/mo/MusicArtist>
+                                      <http://purl.org/ontology/mo/MusicGroup>
+                                    )
+                      ] ;
+          rdfs:range <https://schema.org/MusicAlbum> .
+
+
+###  http://www.semanticweb.org/laura/ontologies/2021/10/untitled-ontology-104#isAlbumFor
+:isAlbumFor rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/laura/ontologies/2021/10/untitled-ontology-104#isAssociatedWithGenre
+:isAssociatedWithGenre rdf:type owl:ObjectProperty ;
+                       rdfs:domain [ rdf:type owl:Class ;
+                                     owl:unionOf ( <http://purl.org/ontology/mo/MusicArtist>
+                                                   <https://schema.org/MusicAlbum>
+                                                 )
+                                   ] ;
+                       rdfs:range <https://dbpedia.org/ontology/MusicGenre> .
+
+
+###  http://www.semanticweb.org/laura/ontologies/2021/10/untitled-ontology-104#isMemberOf
+:isMemberOf rdf:type owl:ObjectProperty ;
+            rdfs:domain <http://purl.org/ontology/mo/MusicArtist> ;
+            rdfs:range <http://purl.org/ontology/mo/MusicGroup> .
+
+
+###  http://www.semanticweb.org/laura/ontologies/2021/10/untitled-ontology-104#likesMusicAlbum
+:likesMusicAlbum rdf:type owl:ObjectProperty ;
+                 rdfs:domain <https://schema.org/Person> ;
+                 rdfs:range <https://schema.org/MusicAlbum> .
+
+
+###  http://www.semanticweb.org/laura/ontologies/2021/10/untitled-ontology-104#likesMusicArtist
+:likesMusicArtist rdf:type owl:ObjectProperty ;
+                  rdfs:domain <https://schema.org/Person> ;
+                  rdfs:range <http://purl.org/ontology/mo/MusicArtist> .
+
+
+###  http://www.semanticweb.org/laura/ontologies/2021/10/untitled-ontology-104#likesMusicGroup
+:likesMusicGroup rdf:type owl:ObjectProperty ;
+                 rdfs:domain <https://schema.org/Person> ;
+                 rdfs:range <http://purl.org/ontology/mo/MusicGroup> .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/laura/ontologies/2021/10/untitled-ontology-104#isFoundedInYear
+:isFoundedInYear rdf:type owl:DatatypeProperty ;
+                 rdfs:domain [ rdf:type owl:Class ;
+                               owl:unionOf ( <http://purl.org/ontology/mo/MusicArtist>
+                                             <http://purl.org/ontology/mo/MusicGroup>
+                                           )
+                             ] ;
+                 rdfs:range xsd:int .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.org/ontology/mo/MusicArtist
+<http://purl.org/ontology/mo/MusicArtist> rdf:type owl:Class .
+
+
+###  http://purl.org/ontology/mo/MusicGroup
+<http://purl.org/ontology/mo/MusicGroup> rdf:type owl:Class .
+
+
+###  https://dbpedia.org/ontology/MusicGenre
+<https://dbpedia.org/ontology/MusicGenre> rdf:type owl:Class .
+
+
+###  https://dbpedia.org/resource/Blues
+<https://dbpedia.org/resource/Blues> rdf:type owl:Class ;
+                                     rdfs:subClassOf <https://dbpedia.org/ontology/MusicGenre> .
+
+
+###  https://dbpedia.org/resource/Country_music
+<https://dbpedia.org/resource/Country_music> rdf:type owl:Class ;
+                                             rdfs:subClassOf <https://dbpedia.org/ontology/MusicGenre> .
+
+
+###  https://dbpedia.org/resource/Hip_hop_music
+<https://dbpedia.org/resource/Hip_hop_music> rdf:type owl:Class ;
+                                             rdfs:subClassOf <https://dbpedia.org/ontology/MusicGenre> .
+
+
+###  https://dbpedia.org/resource/Rock_music
+<https://dbpedia.org/resource/Rock_music> rdf:type owl:Class ;
+                                          rdfs:subClassOf <https://dbpedia.org/ontology/MusicGenre> .
+
+
+###  https://schema.org/MusicAlbum
+<https://schema.org/MusicAlbum> rdf:type owl:Class .
+
+
+###  https://schema.org/Person
+<https://schema.org/Person> rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://dbpedia.org/resource/Jatavia_Shakara_Johnson
+<http://dbpedia.org/resource/Jatavia_Shakara_Johnson> rdf:type owl:NamedIndividual ,
+                                                               <http://purl.org/ontology/mo/MusicArtist> ;
+                                                      :isMemberOf <https://dbpedia.org/resource/City_Girls> .
+
+
+###  http://dbpedia.org/resource/Jimmy_Page
+<http://dbpedia.org/resource/Jimmy_Page> rdf:type owl:NamedIndividual ,
+                                                  <http://purl.org/ontology/mo/MusicArtist> ;
+                                         :isMemberOf <https://dbpedia.org/resource/Led_Zeppelin> .
+
+
+###  http://dbpedia.org/resource/John_Bonham
+<http://dbpedia.org/resource/John_Bonham> rdf:type owl:NamedIndividual ,
+                                                   <http://purl.org/ontology/mo/MusicArtist> ;
+                                          :isMemberOf <https://dbpedia.org/resource/Led_Zeppelin> .
+
+
+###  http://dbpedia.org/resource/Robert_Plant
+<http://dbpedia.org/resource/Robert_Plant> rdf:type owl:NamedIndividual ,
+                                                    <http://purl.org/ontology/mo/MusicArtist> ;
+                                           :isMemberOf <https://dbpedia.org/resource/Led_Zeppelin> .
+
+
+###  http://dbpedia.org/resource/Tyler_Hubbard
+<http://dbpedia.org/resource/Tyler_Hubbard> rdf:type owl:NamedIndividual ,
+                                                     <http://purl.org/ontology/mo/MusicArtist> ;
+                                            :isMemberOf <https://dbpedia.org/resource/Florida_Georgia_Line> .
+
+
+###  http://dbpedia.org/resource/Yung_Miami
+<http://dbpedia.org/resource/Yung_Miami> rdf:type owl:NamedIndividual ,
+                                                  <http://purl.org/ontology/mo/MusicArtist> ;
+                                         :isMemberOf <https://dbpedia.org/resource/City_Girls> .
+
+
+###  http://dbpedia.org/resource/Brian_Kelley_(musician)
+<http://dbpedia.org/resource/Brian_Kelley_(musician)> rdf:type owl:NamedIndividual ,
+                                                               <http://purl.org/ontology/mo/MusicArtist> ;
+                                                      :isMemberOf <https://dbpedia.org/resource/Florida_Georgia_Line> .
+
+
+###  http://dbpedia.org/resource/John_Paul_Jones_(musician)
+<http://dbpedia.org/resource/John_Paul_Jones_(musician)> rdf:type owl:NamedIndividual ,
+                                                                  <http://purl.org/ontology/mo/MusicArtist> ;
+                                                         :isMemberOf <https://dbpedia.org/resource/Led_Zeppelin> .
+
+
+###  http://www.semanticweb.org/laura/ontologies/2021/10/untitled-ontology-104#Laura
+:Laura rdf:type owl:NamedIndividual ,
+                <https://schema.org/Person> ;
+       :likesMusicArtist <http://dbpedia.org/resource/Yung_Miami> .
+
+
+###  https://dbpedia.org/resource/Aerosmith
+<https://dbpedia.org/resource/Aerosmith> rdf:type owl:NamedIndividual ,
+                                                  <http://purl.org/ontology/mo/MusicGroup> ;
+                                         :hasAlbum <https://dbpedia.org/resource/Category:Aerosmith_albums> ;
+                                         :isAssociatedWithGenre <https://dbpedia.org/resource/Hard_rock> .
+
+
+###  https://dbpedia.org/resource/Alternative_country
+<https://dbpedia.org/resource/Alternative_country> rdf:type owl:NamedIndividual ,
+                                                            <https://dbpedia.org/resource/Country_music> .
+
+
+###  https://dbpedia.org/resource/Alternative_hip_hop
+<https://dbpedia.org/resource/Alternative_hip_hop> rdf:type owl:NamedIndividual ,
+                                                            <https://dbpedia.org/resource/Hip_hop_music> .
+
+
+###  https://dbpedia.org/resource/Alternative_rock
+<https://dbpedia.org/resource/Alternative_rock> rdf:type owl:NamedIndividual ,
+                                                         <https://dbpedia.org/resource/Rock_music> .
+
+
+###  https://dbpedia.org/resource/Arena_rock
+<https://dbpedia.org/resource/Arena_rock> rdf:type owl:NamedIndividual ,
+                                                   <https://dbpedia.org/resource/Rock_music> .
+
+
+###  https://dbpedia.org/resource/Beastie_Boys
+<https://dbpedia.org/resource/Beastie_Boys> rdf:type owl:NamedIndividual ,
+                                                     <http://purl.org/ontology/mo/MusicGroup> ;
+                                            :isAssociatedWithGenre <https://dbpedia.org/resource/Hipster_hop> .
+
+
+###  https://dbpedia.org/resource/Beat_music
+<https://dbpedia.org/resource/Beat_music> rdf:type owl:NamedIndividual ,
+                                                   <https://dbpedia.org/resource/Rock_music> .
+
+
+###  https://dbpedia.org/resource/Bluegrass_music
+<https://dbpedia.org/resource/Bluegrass_music> rdf:type owl:NamedIndividual ,
+                                                        <https://dbpedia.org/resource/Country_music> .
+
+
+###  https://dbpedia.org/resource/Boom_bap
+<https://dbpedia.org/resource/Boom_bap> rdf:type owl:NamedIndividual ,
+                                                 <https://dbpedia.org/resource/Hip_hop_music> .
+
+
+###  https://dbpedia.org/resource/Bro-country
+<https://dbpedia.org/resource/Bro-country> rdf:type owl:NamedIndividual ,
+                                                    <https://dbpedia.org/resource/Country_music> .
+
+
+###  https://dbpedia.org/resource/Christian_hip_hop
+<https://dbpedia.org/resource/Christian_hip_hop> rdf:type owl:NamedIndividual ,
+                                                          <https://dbpedia.org/resource/Hip_hop_music> .
+
+
+###  https://dbpedia.org/resource/City_Girls
+<https://dbpedia.org/resource/City_Girls> rdf:type owl:NamedIndividual ,
+                                                   <http://purl.org/ontology/mo/MusicGroup> ;
+                                          :isAssociatedWithGenre <https://dbpedia.org/resource/Hipster_hop> .
+
+
+###  https://dbpedia.org/resource/Comedy_hip_hop
+<https://dbpedia.org/resource/Comedy_hip_hop> rdf:type owl:NamedIndividual ,
+                                                       <https://dbpedia.org/resource/Hip_hop_music> .
+
+
+###  https://dbpedia.org/resource/Death_rock
+<https://dbpedia.org/resource/Death_rock> rdf:type owl:NamedIndividual ,
+                                                   <https://dbpedia.org/resource/Rock_music> .
+
+
+###  https://dbpedia.org/resource/Deep_Purple
+<https://dbpedia.org/resource/Deep_Purple> rdf:type owl:NamedIndividual ,
+                                                    <http://purl.org/ontology/mo/MusicGroup> ;
+                                           :hasAlbum <https://dbpedia.org/resource/Category:Deep_Purple_albums> .
+
+
+###  https://dbpedia.org/resource/Florida_Georgia_Line
+<https://dbpedia.org/resource/Florida_Georgia_Line> rdf:type owl:NamedIndividual ,
+                                                             <http://purl.org/ontology/mo/MusicGroup> ;
+                                                    :isAssociatedWithGenre <https://dbpedia.org/resource/Alternative_country> .
+
+
+###  https://dbpedia.org/resource/Hard_rock
+<https://dbpedia.org/resource/Hard_rock> rdf:type owl:NamedIndividual ,
+                                                  <https://dbpedia.org/resource/Rock_music> .
+
+
+###  https://dbpedia.org/resource/Heartland_rock
+<https://dbpedia.org/resource/Heartland_rock> rdf:type owl:NamedIndividual ,
+                                                       <https://dbpedia.org/resource/Country_music> .
+
+
+###  https://dbpedia.org/resource/Heavy_metal_music
+<https://dbpedia.org/resource/Heavy_metal_music> rdf:type owl:NamedIndividual ,
+                                                          <https://dbpedia.org/resource/Rock_music> .
+
+
+###  https://dbpedia.org/resource/Hipster_hop
+<https://dbpedia.org/resource/Hipster_hop> rdf:type owl:NamedIndividual ,
+                                                    <https://dbpedia.org/resource/Hip_hop_music> .
+
+
+###  https://dbpedia.org/resource/Honky-tonk
+<https://dbpedia.org/resource/Honky-tonk> rdf:type owl:NamedIndividual ,
+                                                   <https://dbpedia.org/resource/Country_music> .
+
+
+###  https://dbpedia.org/resource/Indie_rock
+<https://dbpedia.org/resource/Indie_rock> rdf:type owl:NamedIndividual ,
+                                                   <https://dbpedia.org/resource/Rock_music> .
+
+
+###  https://dbpedia.org/resource/Jewish_hip_hop
+<https://dbpedia.org/resource/Jewish_hip_hop> rdf:type owl:NamedIndividual ,
+                                                       <https://dbpedia.org/resource/Hip_hop_music> .
+
+
+###  https://dbpedia.org/resource/Lady_A
+<https://dbpedia.org/resource/Lady_A> rdf:type owl:NamedIndividual ,
+                                               <http://purl.org/ontology/mo/MusicGroup> ;
+                                      :isAssociatedWithGenre <https://dbpedia.org/resource/Alternative_country> .
+
+
+###  https://dbpedia.org/resource/Led_Zeppelin
+<https://dbpedia.org/resource/Led_Zeppelin> rdf:type owl:NamedIndividual ,
+                                                     <http://purl.org/ontology/mo/MusicGroup> ;
+                                            :hasAlbum <https://dbpedia.org/resource/Category:Led_Zeppelin_albums> ;
+                                            :isAssociatedWithGenre <https://dbpedia.org/resource/Hard_rock> .
+
+
+###  https://dbpedia.org/resource/Little_Big_Town
+<https://dbpedia.org/resource/Little_Big_Town> rdf:type owl:NamedIndividual ,
+                                                        <http://purl.org/ontology/mo/MusicGroup> ;
+                                               :isAssociatedWithGenre <https://dbpedia.org/resource/Alternative_country> .
+
+
+###  https://dbpedia.org/resource/Neotraditional_country
+<https://dbpedia.org/resource/Neotraditional_country> rdf:type owl:NamedIndividual ,
+                                                               <https://dbpedia.org/resource/Country_music> .
+
+
+###  https://dbpedia.org/resource/Progressive_rock
+<https://dbpedia.org/resource/Progressive_rock> rdf:type owl:NamedIndividual ,
+                                                         <https://dbpedia.org/resource/Rock_music> .
+
+
+###  https://dbpedia.org/resource/Psychedelic_rock
+<https://dbpedia.org/resource/Psychedelic_rock> rdf:type owl:NamedIndividual ,
+                                                         <https://dbpedia.org/resource/Rock_music> .
+
+
+###  https://dbpedia.org/resource/Punk_rock
+<https://dbpedia.org/resource/Punk_rock> rdf:type owl:NamedIndividual ,
+                                                  <https://dbpedia.org/resource/Rock_music> .
+
+
+###  https://dbpedia.org/resource/The_Roots
+<https://dbpedia.org/resource/The_Roots> rdf:type owl:NamedIndividual ,
+                                                  <http://purl.org/ontology/mo/MusicGroup> ;
+                                         :isAssociatedWithGenre <https://dbpedia.org/resource/Hipster_hop> .
+
+
+###  https://dbpedia.org/resource/The_Who
+<https://dbpedia.org/resource/The_Who> rdf:type owl:NamedIndividual ,
+                                                <http://purl.org/ontology/mo/MusicGroup> ;
+                                       :isAssociatedWithGenre <https://dbpedia.org/resource/Hard_rock> .
+
+
+###  https://dbpedia.org/resource/Underground_hip_hop
+<https://dbpedia.org/resource/Underground_hip_hop> rdf:type owl:NamedIndividual ,
+                                                            <https://dbpedia.org/resource/Hip_hop_music> .
+
+
+###  https://dbpedia.org/resource/Category:Aerosmith_albums
+<https://dbpedia.org/resource/Category:Aerosmith_albums> rdf:type owl:NamedIndividual ,
+                                                                  <https://schema.org/MusicAlbum> .
+
+
+###  https://dbpedia.org/resource/Category:Deep_Purple_albums
+<https://dbpedia.org/resource/Category:Deep_Purple_albums> rdf:type owl:NamedIndividual ,
+                                                                    <https://schema.org/MusicAlbum> .
+
+
+###  https://dbpedia.org/resource/Category:Led_Zeppelin_albums
+<https://dbpedia.org/resource/Category:Led_Zeppelin_albums> rdf:type owl:NamedIndividual ,
+                                                                     <https://schema.org/MusicAlbum> .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
