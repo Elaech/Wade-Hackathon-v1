@@ -1,0 +1,13 @@
+SELECT DISTINCT ?person ?person2 ?name 
+WHERE {
+      ?person a dbo:MusicalArtist .
+      ?person2 a dbo:MusicalArtist .
+      ?person foaf:familyName ?name .
+      ?person2 foaf:familyName ?name .
+       
+
+      ?person2 a dbo:MusicalArtist .
+       FILTER (lang(?name) = "en") . 
+
+
+//Plus ceva de genul ?person dbr:notSameAs ?person2
