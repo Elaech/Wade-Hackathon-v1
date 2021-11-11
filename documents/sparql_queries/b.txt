@@ -1,0 +1,10 @@
+SELECT DISTINCT ?artist
+WHERE {
+?artist rdf:type dbo:MusicalArtist .
+?artist dbp:gender ?gen .
+FILTER( str(?gen) = "female" ) .
+
+}
+
+
+//Music artists with gender female
