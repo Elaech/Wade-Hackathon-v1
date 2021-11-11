@@ -1,0 +1,9 @@
+SELECT *
+WHERE
+     {
+        ?Group dbo:activeYearsStartYear ?startYear
+        filter(str(?startYear) >= "2000.01.01").
+
+         ?Group rdfs:comment ?comment
+         filter(CONTAINS(str(?comment), "Iceland") || CONTAINS(str(?comment), "Finish"))
+}
