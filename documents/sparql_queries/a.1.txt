@@ -1,0 +1,7 @@
+SELECT *
+WHERE
+     {
+VALUES ?type { dbr:Progressive_rock dbr:Post-rock } 
+        ?Group dbo:genre ?type;
+        dbp:artist ?artist
+}
