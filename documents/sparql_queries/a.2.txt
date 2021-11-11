@@ -1,0 +1,8 @@
+SELECT *
+WHERE
+     {
+VALUES ?instrument { dbr:Guitar dbr:Musical_keyboard }
+        ?person dbo:instrument ?instrument;
+        dbo:birthDate ?birthDate
+        filter (str(?birthDate) > "1940-01-01" && str(?birthDate) < "1991-01-01")
+}
